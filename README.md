@@ -4,4 +4,4 @@
 
 
 ## Password is changed by user 
-   
+  [ScreenShot](images/passwordChange.png)
