@@ -37,11 +37,12 @@ userSchema.methods.isPasswordConfirm = async function (password){
         return await bcrypt.compare(password,this.password)
 }
 
-userSchema.methods.generateAccessToken =function(){
+userSchema.methods.GenerateAccessToken =function(){
+    console.log("userName------",this.userName)
     return jwt.sign(
         {
             _id:this._id,
-            username: this.username,
+            userName: this.userName,
             email: this.email
         },
             process.env.ACCESS_TOKEN_SECRET
@@ -52,7 +53,7 @@ userSchema.methods.generateAccessToken =function(){
 }
 
 
-userSchema.methods.generateRefresToken = function(){
+userSchema.methods.GenerateRefreshToken = function(){
     return jwt.sign(
         {
             _id:this._id
