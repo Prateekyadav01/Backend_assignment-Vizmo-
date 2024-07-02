@@ -20,14 +20,14 @@
   ## getAllblog
   ![ScreenShot](images/getAllblog.png)
 
-  ## singleData 
+  ## singleData (by id)
   ![ScreenShot](images/single.png)
 
-  ## updateBlog
+  ## updateBlog (by id)
   ![ScreenShot](images/update.png)
 
-  ## deleteBlog
+  ## deleteBlog (by id)
   ![ScreenShot](images/delete.png)
 
-  ## filterBlog
+  ## filterBlog (By title and author)
   ![ScreenShot](images/filter.png)
