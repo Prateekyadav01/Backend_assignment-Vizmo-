@@ -50,7 +50,7 @@ export const allPost = async(req,res)=>{
 export const singlePost = async(req,res)=>{
     console.log(req.params.id);
     try {
-        const post = await BlogPost.findOne({author:req.params.id});
+        const post = await BlogPost.findById(req.params.id);
         if(!post){
             throw new ApiError(404, "post not found");
         }
