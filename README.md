@@ -21,7 +21,7 @@
   ![ScreenShot](images/getAllblog.png)
 
   ## singleData (by id)
-  ![ScreenShot](images/single.png)
+  ![ScreenShot](images/single1.png)
 
   ## updateBlog (by id)
   ![ScreenShot](images/update.png)
@@ -30,4 +30,4 @@
   ![ScreenShot](images/delete.png)
 
   ## filterBlog (By title and author)
-  ![ScreenShot](images/filter.png)
+  ![ScreenShot](images/filter1.png)
