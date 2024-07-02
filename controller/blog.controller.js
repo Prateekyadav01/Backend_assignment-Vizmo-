@@ -60,3 +60,34 @@ export const singlePost = async(req,res)=>{
         console.log("error in fetching single blog post", error);
     }
 }
+
+export const deletePost = async(req,res)=>{
+    console.log(req.params.id);
+    try {
+        const post = await BlogPost.findByIdAndDelete(req.params.id);
+        if(!post){
+            throw new ApiError(404, "post not found");
+        }
+        return res.status(200).json(
+            new ApiResponse(200, post,"Single Blog is deleted successfully")
+        )
+    } catch (error) {
+        console.log("error in deleting single blog post", error);
+    }
+}
+
+
+export const updatePost = async(req,res)=>{
+    console.log(req.params.id);
+    try {
+        const post = await BlogPost.findByIdAndUpdate(req.params.id,req.body,{new:true});
+        if(!post){
+            throw new ApiError(404, "post not found");
+        }
+        return res.status(200).json(
+            new ApiResponse(200, post,"Single Blog is updated successfully")
+        )
+    } catch (error) {
+        console.log("error in updating single blog post", error);
+    }
+}
