@@ -1,6 +1,6 @@
 import { BlogPost } from "../models/blog.model.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
-import jwt from "jsonwebtoken"
+
 
 
 export const blogPost = async(req,res)=>{
@@ -31,5 +31,32 @@ export const blogPost = async(req,res)=>{
     } catch (error) {
         console.log("error in creating blog post", error);
 
+    }
+}
+
+
+export const allPost = async(req,res)=>{
+    try {
+        const posts = await BlogPost.find();
+        return res.status(200).json(
+            new ApiResponse(200, posts,"All Blogs are fetched successfully")
+        )
+    } catch (error) {
+        console.log("error in fetching all blog posts", error);
+    }
+}
+
+export const singlePost = async(req,res)=>{
+    console.log(req.params.id);
+    try {
+        const post = await BlogPost.findOne({author:req.params.id});
+        if(!post){
+            throw new ApiError(404, "post not found");
+        }
+        return res.status(200).json(
+            new ApiResponse(200, post,"Single Blog is fetched successfully")
+        )
+    } catch (error) {
+        console.log("error in fetching single blog post", error);
     }
 }
