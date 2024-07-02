@@ -91,3 +91,16 @@ export const updatePost = async(req,res)=>{
         console.log("error in updating single blog post", error);
     }
 }
+
+
+export const filterPost = async(req,res)=>{
+    console.log(req.query);
+    try {
+        const posts = await BlogPost.find({title:{$regex:req.query.title, $options:'i'}});
+        return res.status(200).json(
+            new ApiResponse(200, posts,"Filtered Blogs are fetched successfully")
+        )
+    } catch (error) {
+        console.log("error in fetching filtered blog posts", error);
+    }
+}

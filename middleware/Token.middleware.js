@@ -1,5 +1,5 @@
 import { ApiError } from "../utils/ApiError.js";
-import jwt from "jsonwebtoken";
+import jwt, { decode } from "jsonwebtoken";
 
 export const accessTokenGet = (req, res, next) => {
     const accessToken = req.cookies.accessToken;
@@ -7,6 +7,7 @@ export const accessTokenGet = (req, res, next) => {
         try {
             const decoded = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET);
             req.user = decoded;
+            console.log("accessToken User", decoded);
             next();
         } catch (error) {
             console.log("Invalid access token:", error);
