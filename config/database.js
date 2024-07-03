@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 
 const dbConnection = async(req,res)=>{
     try{
-        const connect = await mongoose.connect("mongodb+srv://pra:pra@cluster0.gljskkh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0/vimeo");
+        const connect = await mongoose.connect(process.env.MONGO_URL);
         console.log('Connected to MongoDB Atlas!');
     }
     catch(err){
