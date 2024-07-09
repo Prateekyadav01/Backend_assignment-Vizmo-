@@ -14,6 +14,3 @@ const dbConnection = async(req,res)=>{
 
 export default dbConnection;
 
-
-// VLlJBotBF92exCRR
-// prateeky562
